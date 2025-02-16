@@ -38,7 +38,14 @@ $$
 
 **μ**: Birth and death rate (assumes equal birth and death rates to keep the population constant).
 
+## SIRS Model with Vaccination
+When vaccination is introduced, a fraction of the susceptible population is moved directly to the recovered compartment, assuming the vaccine provides immunity.  
+### <ins>Assumptions</ins>  
+**Homogeneous Population**: The population is well-mixed, meaning every individual has an equal chance of interacting with any other individual.  
+
+**Constant Population Size**: The total population N=S+I+R is constant (no births, deaths, or migration).  
+
+**Vaccination**: A fraction p of susceptible individuals is vaccinated per unit time, moving them directly to the recovered compartment.  
 
 
- 
-
+### <ins>Equations governing SIRS with vaccination Model</ins>
