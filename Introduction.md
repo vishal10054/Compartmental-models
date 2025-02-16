@@ -58,7 +58,12 @@ $$
 $$
 \frac{dR}{dt} = γI - δR + pS
 $$
+$$
+\frac{dV}{dt} = pS
+$$
 ### <ins>Parameters</ins>
+**V**: Vaccinated individuals  
+
 **β**: Transmission rate (rate at which susceptible individuals become infected).
 
 **p**: Vaccination rate
