@@ -49,3 +49,41 @@ When vaccination is introduced, a fraction of the susceptible population is move
 
 
 ### <ins>Equations governing SIRS with vaccination Model</ins>
+$$
+\frac{dS}{dt} = - βSI + δR - pS
+$$
+$$
+\frac{dI}{dt} = βSI -γI
+$$
+$$
+\frac{dR}{dt} = γI - δR + pS
+$$
+### <ins>Parameters</ins>
+**β**: Transmission rate (rate at which susceptible individuals become infected).
+
+**p**: Vaccination rate
+
+**γ**: Recovery rate (inverse of the infectious period).
+
+**δ**: Rate at which recorded indiiduals lose immunity and become susceptible again.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
