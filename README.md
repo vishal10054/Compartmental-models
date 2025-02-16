@@ -26,3 +26,14 @@ $$
 $$
 \frac{dR}{dt} = γI - (δ+μ)R
 $$
+
+### Parameters
+**β**: Transmission rate (rate at which susceptible individuals become infected).
+
+**α**: Rate at which exposed individuals become infectious (inverse of the incubation period).
+
+**γ**: Recovery rate (inverse of the infectious period).
+
+**δ**: Rate of waning immunity (inverse of the duration of immunity).
+
+**μ**: Birth and death rate (assumes equal birth and death rates to keep the population constant).
