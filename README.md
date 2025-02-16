@@ -46,4 +46,5 @@ S0 = 990 , E0 = 5 , I0 = 5 , R0 = 0
 ![image](https://github.com/user-attachments/assets/1c65d21e-7aa5-406f-8b84-94806e41112c)
 ![image](https://github.com/user-attachments/assets/f78709e2-5507-46d9-9487-e0f454821706)
 
+ 
 
