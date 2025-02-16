@@ -1,5 +1,5 @@
-Results and Observations
-The conditions used for generating these plots:  
+# Results and Observations For SIERS model
+## The conditions used for generating these plots:  
 N = 1000    ,      beta = 0.5   ,         alpha = 0.2      ,     gamma = 0.1   ,        delta = 0.01    ,      mu = 0.001       
 S0 = 990 , E0 = 5 , I0 = 5 , R0 = 0  
 ![image](https://github.com/user-attachments/assets/d16ca2c8-16ce-411b-96bb-1255a53a8800)
