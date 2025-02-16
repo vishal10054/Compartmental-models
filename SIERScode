@@ -1,0 +1,97 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Define the SEIRS model equations
+def seirs_model(t, y, beta, alpha, gamma, delta, mu, N):
+    S, E, I, R = y
+    dSdt = mu * N - (beta * S * I) / N + delta * R - mu * S
+    dEdt = (beta * S * I) / N - (alpha + mu) * E
+    dIdt = alpha * E - (gamma + mu) * I
+    dRdt = gamma * I - (delta + mu) * R
+    return [dSdt, dEdt, dIdt, dRdt]
+
+# Parameters for COVID-19
+N = 1000              # Total population
+beta = 0.5            # Transmission rate 
+alpha = 0.2           # Incubation rate (1/incubation period)
+gamma = 0.1           # Recovery rate (1/infectious period)
+delta = 0.01          # Waning immunity rate (immunity lasts ~100 days)
+mu = 0.001            # Birth/death rate 
+
+# Initial conditions (S, E, I, R)
+S0 = 990              # Initial susceptible population
+E0 = 5                # Initial exposed population
+I0 = 5                # Initial infected population
+R0 = 0                # Initial recovered population
+y0 = [S0, E0, I0, R0]
+
+# Time span for simulation (in days)
+t_span = (0, 365)     # Simulate for 1 year
+t_eval = np.linspace(0, 365, 365)  # Time points to evaluate the solution
+
+# Solve the system of differential equations
+sol = solve_ivp(seirs_model, t_span, y0, args=(beta, alpha, gamma, delta, mu, N), 
+                t_eval=t_eval, method='RK45')
+
+# Extract the results
+S = sol.y[0]
+E = sol.y[1]
+I = sol.y[2]
+R = sol.y[3]
+time = sol.t
+
+# Plot the combined results
+plt.figure(figsize=(10, 6))
+plt.plot(time, S, label='Susceptible (S)', color='blue')
+plt.plot(time, E, label='Exposed (E)', color='orange')
+plt.plot(time, I, label='Infected (I)', color='red')
+plt.plot(time, R, label='Recovered (R)', color='green')
+plt.xlabel('Time (days)')
+plt.ylabel('Population')
+plt.title('SEIRS Model')
+plt.legend()
+plt.grid()
+plt.show()
+
+# Plot the results separately
+plt.figure(figsize=(14, 10))
+
+# Susceptible (S)
+plt.subplot(2, 2, 1)
+plt.plot(time, S, label='Susceptible (S)', color='blue')
+plt.xlabel('Time (days)')
+plt.ylabel('Population')
+plt.title('Susceptible (S) Over Time')
+plt.legend()
+plt.grid()
+
+# Exposed (E)
+plt.subplot(2, 2, 2)
+plt.plot(time, E, label='Exposed (E)', color='orange')
+plt.xlabel('Time (days)')
+plt.ylabel('Population')
+plt.title('Exposed (E) Over Time')
+plt.legend()
+plt.grid()
+
+# Infected (I)
+plt.subplot(2, 2, 3)
+plt.plot(time, I, label='Infected (I)', color='red')
+plt.xlabel('Time (days)')
+plt.ylabel('Population')
+plt.title('Infected (I) Over Time')
+plt.legend()
+plt.grid()
+
+# Recovered (R)
+plt.subplot(2, 2, 4)
+plt.plot(time, R, label='Recovered (R)', color='green')
+plt.xlabel('Time (days)')
+plt.ylabel('Population')
+plt.title('Recovered (R) Over Time')
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
